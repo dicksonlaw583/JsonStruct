@@ -2,8 +2,11 @@
   "resources": [
     {"id":{"name":"__GMA_BREAKPOINT__","path":"scripts/__GMA_BREAKPOINT__/__GMA_BREAKPOINT__.yy",},"order":0,},
     {"id":{"name":"jsons_encode","path":"scripts/jsons_encode/jsons_encode.yy",},"order":0,},
+    {"id":{"name":"json_struct_test_real_encoders","path":"scripts/json_struct_test_real_encoders/json_struct_test_real_encoders.yy",},"order":2,},
     {"id":{"name":"json_struct_test_encode","path":"scripts/json_struct_test_encode/json_struct_test_encode.yy",},"order":1,},
+    {"id":{"name":"jsons_real_encoder_detailed","path":"scripts/jsons_real_encoder_detailed/jsons_real_encoder_detailed.yy",},"order":4,},
     {"id":{"name":"__JSONS_CONFIG__","path":"scripts/__JSONS_CONFIG__/__JSONS_CONFIG__.yy",},"order":1,},
+    {"id":{"name":"jsons_real_encoder_string_format","path":"scripts/jsons_real_encoder_string_format/jsons_real_encoder_string_format.yy",},"order":3,},
     {"id":{"name":"JsonStructTypeException","path":"scripts/JsonStructTypeException/JsonStructTypeException.yy",},"order":2,},
     {"id":{"name":"json_struct_test_all","path":"scripts/json_struct_test_all/json_struct_test_all.yy",},"order":0,},
     {"id":{"name":"GMAssert","path":"extensions/GMAssert/GMAssert.yy",},"order":0,},
