@@ -6,6 +6,7 @@ function json_struct_test_all() {
 	json_struct_test_real_encoders();
 	json_struct_test_decode_helpers();
 	json_struct_test_decode();
+	json_struct_test_clone();
 	timeB = current_time;
 	show_debug_message("JSON Struct tests done in " + string(timeB-timeA) + "ms.");
 }
