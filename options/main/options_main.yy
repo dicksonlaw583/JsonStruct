@@ -1,5 +1,5 @@
 {
-  "option_gameguid": "",
+  "option_gameguid": "0f981fcd-a5d2-4a2e-85e6-1fcbef86fcea",
   "option_game_speed": 60,
   "option_mips_for_3d_textures": false,
   "option_draw_colour": 4294967295,
@@ -11,7 +11,7 @@
   "addon_amazon_apis": "",
   "addon_google_play_services": "",
   "option_spine_licence": false,
-  "resourceVersion": "1.0",
+  "resourceVersion": "1.1",
   "name": "Main",
   "tags": [],
   "resourceType": "GMMainOptions",

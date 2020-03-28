@@ -40,14 +40,7 @@
     {"id":{"name":"json_struct_test_decode","path":"scripts/json_struct_test_decode/json_struct_test_decode.yy",},"order":4,},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},"order":0,},
   ],
-  "isDnDProject": false,
-  "isEcma": false,
-  "tutorialPath": "",
-  "configs": {
-    "name": "Default",
-    "children": [],
-  },
-  "options": [
+  "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
     {"name":"Android","path":"options/android/options_android.yy",},
     {"name":"HTML5","path":"options/html5/options_html5.yy",},
@@ -62,6 +55,13 @@
     {"name":"Windows UWP","path":"options/windowsuap/options_windowsuap.yy",},
     {"name":"Xbox One","path":"options/xboxone/options_xboxone.yy",},
   ],
+  "isDnDProject": false,
+  "isEcma": false,
+  "tutorialPath": "",
+  "configs": {
+    "name": "Default",
+    "children": [],
+  },
   "RoomOrder": [
     {"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},
   ],
@@ -82,7 +82,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "23.1.1.122",
+    "IDEVersion": "23.1.1.131",
   },
   "resourceVersion": "1.3",
   "name": "JsonStruct",
