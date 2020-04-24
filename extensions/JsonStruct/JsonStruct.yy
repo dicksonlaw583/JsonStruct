@@ -17,45 +17,45 @@
   "installdir": "",
   "files": [
     {"filename":"JsonStruct.gml","origname":"","init":"","final":"","kind":2,"uncompress":false,"functions":[
-        {"externalName":"__jsons_decode_array__","kind":2,"help":"__jsons_decode_array__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_array__","kind":2,"help":"__jsons_decode_array__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_array__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_bool__","kind":2,"help":"__jsons_decode_bool__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_bool__","kind":2,"help":"__jsons_decode_bool__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_bool__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_real__","kind":2,"help":"__jsons_decode_real__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_real__","kind":2,"help":"__jsons_decode_real__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_real__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_seek__","kind":2,"help":"__jsons_decode_seek__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_seek__","kind":2,"help":"__jsons_decode_seek__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_seek__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_string__","kind":2,"help":"__jsons_decode_string__(@seekrec)","hidden":false,"returnType":1,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_string__","kind":2,"help":"__jsons_decode_string__(@seekrec)","hidden":true,"returnType":1,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_string__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_struct__","kind":2,"help":"__jsons_decode_struct__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_struct__","kind":2,"help":"__jsons_decode_struct__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_struct__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_subcontent__","kind":2,"help":"__jsons_decode_subcontent__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_subcontent__","kind":2,"help":"__jsons_decode_subcontent__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_subcontent__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decode_undefined__","kind":2,"help":"__jsons_decode_undefined__(@seekrec)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_decode_undefined__","kind":2,"help":"__jsons_decode_undefined__(@seekrec)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"__jsons_decode_undefined__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_decrypt__","kind":2,"help":"__jsons_decrypt__(str, key)","hidden":false,"returnType":1,"argCount":0,"args":[
+        {"externalName":"__jsons_decrypt__","kind":2,"help":"__jsons_decrypt__(str, key)","hidden":true,"returnType":1,"argCount":0,"args":[
             1,
             1,
           ],"resourceVersion":"1.0","name":"__jsons_decrypt__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_encrypt__","kind":2,"help":"__jsons_encrypt__(str, key)","hidden":false,"returnType":1,"argCount":0,"args":[
+        {"externalName":"__jsons_encrypt__","kind":2,"help":"__jsons_encrypt__(str, key)","hidden":true,"returnType":1,"argCount":0,"args":[
             1,
             1,
           ],"resourceVersion":"1.0","name":"__jsons_encrypt__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_hex_to_decimal__","kind":2,"help":"__jsons_hex_to_decimal__(hexstr)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_hex_to_decimal__","kind":2,"help":"__jsons_hex_to_decimal__(hexstr)","hidden":true,"returnType":2,"argCount":0,"args":[
             1,
           ],"resourceVersion":"1.0","name":"__jsons_hex_to_decimal__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_is_whitespace__","kind":2,"help":"__jsons_is_whitespace__(char)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_is_whitespace__","kind":2,"help":"__jsons_is_whitespace__(char)","hidden":true,"returnType":2,"argCount":0,"args":[
             1,
           ],"resourceVersion":"1.0","name":"__jsons_is_whitespace__","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"__jsons_rc4__","kind":2,"help":"__jsons_rc4__(@buffer, key, offset, length)","hidden":false,"returnType":2,"argCount":0,"args":[
+        {"externalName":"__jsons_rc4__","kind":2,"help":"__jsons_rc4__(@buffer, key, offset, length)","hidden":true,"returnType":2,"argCount":0,"args":[
             2,
             1,
             2,
