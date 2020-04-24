@@ -10,19 +10,7 @@ This library allows encoding and decoding JSON as structs, arrays and other firs
 
 ## Installation
 
-Get the current beta asset package and associated documentation from [the releases page](https://github.com/dicksonlaw583/JsonStruct/releases).
-
-## Limitations
-
-- Only the following types are supported (the `thing` placeholder type):
-	- String
-	- Number
-	- Array
-	- Struct
-	- Undefined
-	- Boolean
-- Structs built using constructors and the `new` operator will not retain their `instanceof()` type.
-- Circular references are not supported, and will crash if given as input.
+Get the current beta asset package and associated documentation from [the releases page](https://github.com/dicksonlaw583/JsonStruct/releases). Simply extract everything to your project, including the extension and the companion scripts. Once you do that, you may optionally change the options in `__JSONS_CONFIG__` to suit your project's needs.
 
 ## Contributing to JSON Struct
 
