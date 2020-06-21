@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"json_struct_test_load_save","path":"scripts/json_struct_test_load_save/json_struct_test_load_save.yy",},"order":7,},
     {"id":{"name":"__GMA_BREAKPOINT__","path":"scripts/__GMA_BREAKPOINT__/__GMA_BREAKPOINT__.yy",},"order":0,},
+    {"id":{"name":"JsonStructDataType","path":"scripts/JsonStructDataType/JsonStructDataType.yy",},"order":13,},
     {"id":{"name":"json_struct_test_encrypt","path":"scripts/json_struct_test_encrypt/json_struct_test_encrypt.yy",},"order":6,},
     {"id":{"name":"JsonStruct","path":"extensions/JsonStruct/JsonStruct.yy",},"order":1,},
     {"id":{"name":"json_struct_test_load_save_encrypted","path":"scripts/json_struct_test_load_save_encrypted/json_struct_test_load_save_encrypted.yy",},"order":8,},
