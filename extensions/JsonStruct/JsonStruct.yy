@@ -3,7 +3,7 @@
   "options": [],
   "exportToGame": true,
   "supportedTargets": -1,
-  "extensionVersion": "0.0.1",
+  "extensionVersion": "0.0.2",
   "packageId": "",
   "productId": "",
   "author": "",
@@ -87,6 +87,9 @@
             2,
           ],"resourceVersion":"1.0","name":"jsons_save","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"jsons_save_encrypted","kind":2,"help":"jsons_save_encrypted(fname, thing, [enckey], [encfunc])","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"jsons_save_encrypted","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"jsons_conflict_mode","kind":2,"help":"jsons_conflict_mode(onOff)","hidden":false,"returnType":2,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"jsons_conflict_mode","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"__jsons_decode_array__","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"__jsons_decode_bool__","path":"extensions/JsonStruct/JsonStruct.yy",},
@@ -102,6 +105,7 @@
         {"name":"__jsons_is_whitespace__","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"__jsons_rc4__","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"jsons_clone","path":"extensions/JsonStruct/JsonStruct.yy",},
+        {"name":"jsons_conflict_mode","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"jsons_decode","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"jsons_decrypt","path":"extensions/JsonStruct/JsonStruct.yy",},
         {"name":"jsons_encode","path":"extensions/JsonStruct/JsonStruct.yy",},
