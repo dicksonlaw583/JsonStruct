@@ -31,11 +31,9 @@ function json_struct_test_encode() {
 	assert(structEncoded == @'{"abc":"def","ghi":583}' || structEncoded == @'{"ghi":583,"abc":"def"}');
 	
 	// Encode structs (conflict mode)
-	jsons_conflict_mode(true);
 	assert_equal(jsons_encode(new JsonStruct()), "{}");
 	assert_equal(jsons_encode(new JsonStruct("abc", "def")), @'{"abc":"def"}');
 	assert_equal(jsons_encode(new JsonStruct("abc", "def", "ghi", 583)), @'{"abc":"def","ghi":583}');
-	jsons_conflict_mode(false);
 	
 	// Encode mixed
 	assert_equal(jsons_encode({foo: [3.25, -2.75, "Hello world!", bool(true), undefined]}), @'{"foo":[3.25,-2.75,"Hello world!",true,null]}');

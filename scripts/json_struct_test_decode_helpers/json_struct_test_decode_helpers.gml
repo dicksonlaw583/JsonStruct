@@ -172,117 +172,117 @@ function json_struct_test_decode_helpers() {
 	}, got], expected);
 	#endregion
 	
-	#region __jsons_decode_array__(@seekrec)
+	#region __jsons_decode_array__(@seekrec, safe)
 	got = { str: @'[]', pos: 1 };
 	expected = { str: @'[]', pos: 2 };
-	assert_equal(__jsons_decode_array__(got), []);
+	assert_equal(__jsons_decode_array__(got, false), []);
 	assert_equal(got, expected);
 	
 	got = { str: @'  ["foo", 583, null]', pos: 3 };
 	expected = { str: @'  ["foo", 583, null]', pos: 20 };
-	assert_equal(__jsons_decode_array__(got), ["foo", 583, undefined]);
+	assert_equal(__jsons_decode_array__(got, false), ["foo", 583, undefined]);
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ] ', pos: 1 };
 	expected = { str: @'[3, ] ', pos: 5 };
-	assert_equal(__jsons_decode_array__(got), [3]);
+	assert_equal(__jsons_decode_array__(got, false), [3]);
 	assert_equal(got, expected);
 	
 	got = { str: @'["foo", "bar" "baz"]', pos: 1 };
 	expected = new JsonStructParseException(15, "Expected , or ]");
 	assert_throws([function(g) {
-		__jsons_decode_array__(g);
+		__jsons_decode_array__(g, false);
 	}, got], expected);
 	
 	got = { str: @'["foo", "bar"', pos: 1 };
 	expected = new JsonStructParseException(14, "Expected , or ]");
 	assert_throws([function(g) {
-		__jsons_decode_array__(g);
+		__jsons_decode_array__(g, false);
 	}, got], expected);
 	#endregion
 	
 	#region __jsons_decode_struct__(@seekrec)
 	got = { str: @' {}', pos: 2 };
 	expected = { str: @' {}', pos: 3 };
-	assert_equal(__jsons_decode_struct__(got), {});
+	assert_equal(__jsons_decode_struct__(got, false), {});
 	assert_equal(got, expected);
 	
 	got = { str: @'{"alpha": 111,"beta":2,"omega": "999" }', pos: 1 };
 	expected = { str: @'{"alpha": 111,"beta":2,"omega": "999" }', pos: 39 };
-	assert_equal(__jsons_decode_struct__(got), { alpha: 111, beta: 2, omega: "999" });
+	assert_equal(__jsons_decode_struct__(got, false), { alpha: 111, beta: 2, omega: "999" });
 	assert_equal(got, expected);
 	
 	got = { str: @'{"alpha": 111,"beta":2,"omega": "888", }', pos: 1 };
 	expected = { str: @'{"alpha": 111,"beta":2,"omega": "888", }', pos: 40 };
-	assert_equal(__jsons_decode_struct__(got), { alpha: 111, beta: 2, omega: "888" });
+	assert_equal(__jsons_decode_struct__(got, false), { alpha: 111, beta: 2, omega: "888" });
 	assert_equal(got, expected);
 	
 	got = { str: @'{"foo":"bar",}', pos: 1 };
 	expected = { str: @'{"foo":"bar",}', pos: 14 };
-	assert_equal(__jsons_decode_struct__(got), { foo: "bar" });
+	assert_equal(__jsons_decode_struct__(got, false), { foo: "bar" });
 	assert_equal(got, expected);
 	
 	got = { str: @' {3:5}', pos: 2 };
 	expected = new JsonStructParseException(3, "Expected string key");
 	assert_throws([function(g) {
-		__jsons_decode_struct__(g);
+		__jsons_decode_struct__(g, false);
 	}, got], expected);
 	
 	got = { str: @' {"foo" "bar"}', pos: 2 };
 	expected = new JsonStructParseException(9, "Expected :");
 	assert_throws([function(g) {
-		__jsons_decode_struct__(g);
+		__jsons_decode_struct__(g, false);
 	}, got], expected);
 	
 	got = { str: @' {"foo":"bar" 905}', pos: 2 };
 	expected = new JsonStructParseException(15, "Expected , or }");
 	assert_throws([function(g) {
-		__jsons_decode_struct__(g);
+		__jsons_decode_struct__(g, false);
 	}, got], expected);
 	#endregion
 	
 	#region __jsons_decode_subcontent__(@seekrec)
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 5 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 23 };
-	assert_equal(__jsons_decode_subcontent__(got), ["foo", { bar: 4 }]);
+	assert_equal(__jsons_decode_subcontent__(got, false), ["foo", { bar: 4 }]);
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 2 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 2 };
-	assert_equal(__jsons_decode_subcontent__(got), 3);
+	assert_equal(__jsons_decode_subcontent__(got, false), 3);
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 6 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 10 };
-	assert_equal(__jsons_decode_subcontent__(got), "foo");
+	assert_equal(__jsons_decode_subcontent__(got, false), "foo");
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 26 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 29 };
-	assert_equal(__jsons_decode_subcontent__(got), undefined);
+	assert_equal(__jsons_decode_subcontent__(got, false), undefined);
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 32 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true]', pos: 35 };
-	assert_equal(__jsons_decode_subcontent__(got), bool(true));
+	assert_equal(__jsons_decode_subcontent__(got, false), bool(true));
 	assert_equal(got, expected);
 	
 	got = { str: @'[3, ["foo", {"bar":4,}], null, true, false]', pos: 38 };
 	expected = { str: @'[3, ["foo", {"bar":4,}], null, true, false]', pos: 42 };
-	assert_equal(__jsons_decode_subcontent__(got), bool(false));
+	assert_equal(__jsons_decode_subcontent__(got, false), bool(false));
 	assert_equal(got, expected);
 	
 	for (var ii = -1; ii <= 9; ++ii) {
 		got = { str: string(ii), pos: 1 };
 		expected = { str: string(ii), pos: ((ii == -1) ? 2 : 1) };
-		assert_equal(__jsons_decode_subcontent__(got), ii);
+		assert_equal(__jsons_decode_subcontent__(got, false), ii);
 		assert_equal(got, expected);
 	}
 	
 	got = { str: "^", pos: 1 };
 	expected = new JsonStructParseException(1, "Unexpected character");
 	assert_throws([function(g) {
-		__jsons_decode_subcontent__(g);
+		__jsons_decode_subcontent__(g, false);
 	}, got], expected);
 	#endregion
 }

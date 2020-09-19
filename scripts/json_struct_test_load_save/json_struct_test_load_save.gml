@@ -14,9 +14,7 @@ function json_struct_test_load_save() {
 	assert_equal(jsons_load(fname), fixture);
 	
 	// jsons_load(fname) with conflict mode
-	jsons_conflict_mode(true);
-	assert_equal(jsons_load(fname), conflictFixture);
-	jsons_conflict_mode(false);
+	assert_equal(jsons_load_safe(fname), conflictFixture);
 	
 	// Cleanup
 	file_delete(fname);

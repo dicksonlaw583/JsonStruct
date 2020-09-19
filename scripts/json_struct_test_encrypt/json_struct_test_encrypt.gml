@@ -49,23 +49,19 @@ function json_struct_test_encrypt() {
 	#endregion
 	
 	#region Conflict mode
-	jsons_conflict_mode(true);
-	
 	expected = new JsonStruct("foo", "bar", "goo", ["car", 777]);
 	got = jsons_encrypt(expected);
 	assert_not_equal(got, expected);
-	assert_equal(jsons_decrypt(got), expected);
+	assert_equal(jsons_decrypt_safe(got), expected);
 	
 	expected = new JsonStruct("foo", "bar", "goo", ["car", 888]);
 	got = jsons_encrypt(expected, key);
 	assert_not_equal(got, expected);
-	assert_equal(jsons_decrypt(got, key), expected);
+	assert_equal(jsons_decrypt_safe(got, key), expected);
 	
 	expected = new JsonStruct("foo", "bar", "goo", ["car", 999]);
 	got = jsons_encrypt(expected, 2, caesarEncrypt);
 	assert_not_equal(got, expected);
-	assert_equal(jsons_decrypt(got, 2, caesarDecrypt), expected);
-	
-	jsons_conflict_mode(false);
+	assert_equal(jsons_decrypt_safe(got, 2, caesarDecrypt), expected);
 	#endregion
 }

@@ -30,9 +30,7 @@ function json_struct_test_load_save_encrypted() {
 	
 	//jsons_load_encrypted(fname, thing)
 	assert_equal(jsons_load_encrypted(fnames[0]), fixture);
-	jsons_conflict_mode(true);
-	assert_equal(jsons_load_encrypted(fnames[0]), conflictFixture);
-	jsons_conflict_mode(false);
+	assert_equal(jsons_load_encrypted_safe(fnames[0]), conflictFixture);
 	
 	//jsons_save_encrypted(fname, thing, enckey)
 	jsons_save_encrypted(fnames[1], fixture, customKey)
@@ -42,9 +40,7 @@ function json_struct_test_load_save_encrypted() {
 	
 	//jsons_load_encrypted(fname, thing, enckey)
 	assert_equal(jsons_load_encrypted(fnames[1], customKey), fixture);
-	jsons_conflict_mode(true);
-	assert_equal(jsons_load_encrypted(fnames[1], customKey), conflictFixture);
-	jsons_conflict_mode(false);
+	assert_equal(jsons_load_encrypted_safe(fnames[1], customKey), conflictFixture);
 	
 	//jsons_save_encrypted(fname, thing, enckey, encfunc)
 	jsons_save_encrypted(fnames[2], fixture, customKey, caesarEncrypt)
@@ -54,7 +50,5 @@ function json_struct_test_load_save_encrypted() {
 	
 	//jsons_load_encrypted(fname, thing, enckey, encfunc)
 	assert_equal(jsons_load_encrypted(fnames[2], customKey, caesarDecrypt), fixture);
-	jsons_conflict_mode(true);
-	assert_equal(jsons_load_encrypted(fnames[2], customKey, caesarDecrypt), conflictFixture);
-	jsons_conflict_mode(false);
+	assert_equal(jsons_load_encrypted_safe(fnames[2], customKey, caesarDecrypt), conflictFixture);
 }

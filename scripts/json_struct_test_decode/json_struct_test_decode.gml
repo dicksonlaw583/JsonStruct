@@ -42,13 +42,11 @@ function json_struct_test_decode() {
 	#endregion
 	
 	#region Object (conflict mode)
-	jsons_conflict_mode(true);
-	assert_equal(jsons_decode(@'{}'), new JsonStruct());
-	assert_equal(jsons_decode(@'{"foo": "bar", "baz": false}'), new JsonStruct("foo", "bar", "baz", bool(false)));
-	assert_equal(jsons_decode(@'{"foo": "bar", "baz": false,}'), new JsonStruct("foo", "bar", "baz", bool(false)));
-	assert_equal(jsons_decode(@'{"foo": "bar", "baz": { "qux": 385 }}'), new JsonStruct("foo", "bar", "baz", new JsonStruct("qux", 385)));
-	assert_equal(jsons_decode(@'{"foo": "bar", "baz": { "qux": 385, }}'), new JsonStruct("foo", "bar", "baz", new JsonStruct("qux", 385)));
-	assert_equal(jsons_decode(@'[{"foo": "bar", "baz": false}]'), [new JsonStruct("foo", "bar", "baz", bool(false))]);
-	jsons_conflict_mode(false);
+	assert_equal(jsons_decode_safe(@'{}'), new JsonStruct());
+	assert_equal(jsons_decode_safe(@'{"foo": "bar", "baz": false}'), new JsonStruct("foo", "bar", "baz", bool(false)));
+	assert_equal(jsons_decode_safe(@'{"foo": "bar", "baz": false,}'), new JsonStruct("foo", "bar", "baz", bool(false)));
+	assert_equal(jsons_decode_safe(@'{"foo": "bar", "baz": { "qux": 385 }}'), new JsonStruct("foo", "bar", "baz", new JsonStruct("qux", 385)));
+	assert_equal(jsons_decode_safe(@'{"foo": "bar", "baz": { "qux": 385, }}'), new JsonStruct("foo", "bar", "baz", new JsonStruct("qux", 385)));
+	assert_equal(jsons_decode_safe(@'[{"foo": "bar", "baz": false}]'), [new JsonStruct("foo", "bar", "baz", bool(false))]);
 	#endregion
 }
