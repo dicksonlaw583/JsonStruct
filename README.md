@@ -1,4 +1,4 @@
-# JSON Struct
+# JSON Struct v1.0.0
 
 ## Overview
 
@@ -6,7 +6,7 @@ This library allows encoding and decoding JSON as structs, arrays and other firs
 
 ## Requirements
 
-- GameMaker Studio 2.3 Open Beta
+- GameMaker Studio 2.3.0 or higher
 
 ## Installation
 
@@ -15,5 +15,5 @@ Get the current beta asset package and associated documentation from [the releas
 ## Contributing to JSON Struct
 
 - Clone this repository.
-- Open the project in GameMaker Studio 2.3 and make your additions/changes to the `JsonStruct` extension. Also add the corresponding tests to the `JsonStructTest` group.
+- Open the project in GameMaker Studio 2.3 and make your additions/changes to the `JsonStruct` extension. Also add the corresponding tests to the `JsonStruct_test` group.
 - Open a pull request [here](https://github.com/dicksonlaw583/JsonStruct/issues).
