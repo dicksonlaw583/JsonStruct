@@ -600,25 +600,30 @@
 	return jsons_decode_safe(is_method(decfunc) ? decfunc(argument[0], deckey) : script_execute(decfunc, argument[0], deckey));
 }
 
-#define jsons_encode
-///@func jsons_encode(val)
+#define jsons_encode_indent
+///@func jsons_encode_indent(val, [indent], [indent_count])
 ///@param val
-///@desc Encode the given value into JSON.
+///@param [indent]
+///@param [indent_count]
+///@desc Encode the given value into JSON with indenting.
 {
-	var buffer, result, siz;
-	switch (typeof(argument0)) {
+	var i, buffer, result, siz;
+	var indent = undefined, indent_count = 0;
+	if argument_count > 1 then indent = argument[1];
+	if argument_count > 1 then indent_count = argument[2];
+	switch (typeof(argument[0])) {
 		case "number":
-			return JSONS_REAL_ENCODER(argument0);
+			return JSONS_REAL_ENCODER(argument[0]);
 		break;
 		case "int64": case "int32":
-			return string(argument0);
+			return string(argument[0]);
 		break;
 		case "string":
-			siz = string_length(argument0);
+			siz = string_length(argument[0]);
 			buffer = buffer_create(32, buffer_grow, 1);
 			buffer_write(buffer, buffer_text, @'"');
-			for (var i = 1; i <= siz; ++i) {
-				var c = string_char_at(argument0, i);
+			for (i = 1; i <= siz; ++i) {
+				var c = string_char_at(argument[0], i);
 				switch (ord(c)) {
 					case ord("\""): //"
 						c = @'\"';
@@ -651,37 +656,58 @@
 		break;
 		case "array":
 			buffer = buffer_create(64, buffer_grow, 1);
-			siz = array_length(argument0);
+			siz = array_length(argument[0]);
 			buffer_write(buffer, buffer_text, "[");
-			for (var i = 0; i < siz; ++i) {
+			for (i = 0; i < siz; ++i) {
 				if (i > 0) buffer_write(buffer, buffer_text, ",");
-				buffer_write(buffer, buffer_text, jsons_encode(argument0[i]));
+				if indent != undefined and indent_count < JSONS_INDENT_MAX {
+					buffer_write(buffer, buffer_text, "\n");
+					for (var j = 0; j <= indent_count; j++)
+						buffer_write(buffer, buffer_text, indent);
+				}
+				buffer_write(buffer, buffer_text, jsons_encode_indent(argument[0][i], indent, indent_count+1));
+			}
+			if indent != undefined and indent_count < JSONS_INDENT_MAX and i > 0 {
+				buffer_write(buffer, buffer_text, "\n");
+				for (var j = 0; j < indent_count; j++)
+					buffer_write(buffer, buffer_text, indent);
 			}
 			buffer_write(buffer, buffer_string, "]");
 		break;
 		case "struct":
 			buffer = buffer_create(64, buffer_grow, 1);
-			var isConflict = instanceof(argument0) == "JsonStruct";
-			var keys = isConflict ? argument0.keys() : variable_struct_get_names(argument0);
+			var isConflict = instanceof(argument[0]) == "JsonStruct";
+			var keys = isConflict ? argument[0].keys() : variable_struct_get_names(argument[0]);
 			siz = array_length(keys);
 			buffer_write(buffer, buffer_text, "{");
-			for (var i = 0; i < siz; ++i) {
-				var k = keys[i];
+			for (i = 0; i < siz; ++i) {
 				if (i > 0) buffer_write(buffer, buffer_text, ",");
-				buffer_write(buffer, buffer_text, jsons_encode(k));
-				buffer_write(buffer, buffer_text, ":");
-				buffer_write(buffer, buffer_text, jsons_encode(isConflict ? argument0.get(k) : variable_struct_get(argument0, k)));
+				if indent != undefined and indent_count < JSONS_INDENT_MAX {
+					buffer_write(buffer, buffer_text, "\n");
+					for (var j = 0; j <= indent_count; j++)
+						buffer_write(buffer, buffer_text, indent);
+				}
+				var k = keys[i];
+				var v = isConflict ? argument[0].get(k) : variable_struct_get(argument[0], k);
+				buffer_write(buffer, buffer_text, jsons_encode_indent(k, indent, indent_count+1));
+				buffer_write(buffer, buffer_text, JSONS_COLON);
+				buffer_write(buffer, buffer_text, jsons_encode_indent(v, indent, indent_count+1));
+			}
+			if indent != undefined and indent_count < JSONS_INDENT_MAX and i > 0 {
+				buffer_write(buffer, buffer_text, "\n");
+				for (var j = 0; j < indent_count; j++)
+					buffer_write(buffer, buffer_text, indent);
 			}
 			buffer_write(buffer, buffer_string, "}");
 		break;
 		case "bool":
-			return argument0 ? "true" : "false";
+			return argument[0] ? "true" : "false";
 		break;
 		case "undefined":
 			return "null";
 		break;
 		default:
-			throw new JsonStructTypeException(argument0);
+			throw new JsonStructTypeException(argument[0]);
 		break;
 	}
 	// Only strings, arrays and struct to make their way here
@@ -689,6 +715,14 @@
 	var result = buffer_read(buffer, buffer_string);
 	buffer_delete(buffer);
 	return result;
+}
+
+#define jsons_encode
+///@func jsons_encode(val)
+///@param val
+///@desc Encode the given value into JSON.
+{
+	return jsons_encode_indent(argument0);
 }
 
 #define jsons_encrypt
@@ -854,6 +888,17 @@
 {
 	var f = file_text_open_write(argument0);
 	file_text_write_string(f, jsons_encode(argument1));
+	file_text_close(f);
+}
+
+#define jsons_save_indent
+/// @description jsons_save_indent(fname, thing, indent)
+/// @param fname
+/// @param thing
+/// @param indent
+{
+	var f = file_text_open_write(argument0);
+	file_text_write_string(f, jsons_encode_indent(argument1, argument2, 0));
 	file_text_close(f);
 }
 
