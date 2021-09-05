@@ -35,6 +35,11 @@ function json_struct_test_encode_formatted() {
 	
 	// Encode mixed
 	assert_equal(jsons_encode_formatted({foo: [3.25, -2.75, "Hello world!", bool(true), undefined]}, "  "), "{\n  \"foo\": [\n    3.25, \n    -2.75, \n    \"Hello world!\", \n    true, \n    null\n  ]\n}", "jsons_encode_formatted mixed 1");
+	assert_equal(jsons_encode_formatted([3, -2, {foo: "bar", goo: "baz"}, bool(false)], "  "), "[\n  3, \n  -2, \n  {\n    \"foo\": \"bar\", \n    \"goo\": \"baz\"\n  }, \n  false\n]", "jsons_encode_formatted mixed 2");
+	
+	// Encode capped depth
+	assert_equal(jsons_encode_formatted([1, [2, [3, [4, [5]]]]], "\t", 2), "[\n\t1, \n\t[\n\t\t2, \n\t\t[3, [4, [5]]]\n\t]\n]", "jsons_encode_formatted encode capped depth 1");
+	assert_equal(jsons_encode_formatted({a: {b: {c: {d: { e: 5 }}}}}, "\t", 3), "{\n\t\"a\": {\n\t\t\"b\": {\n\t\t\t\"c\": {\"d\": {\"e\": 5}}\n\t\t}\n\t}\n}", "jsons_encode_formatted encode capped depth 2");
 
 	// Encode unsupported type
 	assert_throws_instance_of(function() {
