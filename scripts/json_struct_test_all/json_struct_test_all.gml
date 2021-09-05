@@ -4,6 +4,7 @@ function json_struct_test_all() {
 	var timeA, timeB;
 	timeA = current_time;
 	json_struct_test_encode();
+	json_struct_test_encode_formatted();
 	json_struct_test_real_encoders();
 	json_struct_test_decode_helpers();
 	json_struct_test_decode();
