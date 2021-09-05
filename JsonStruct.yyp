@@ -4,7 +4,6 @@
     {"id":{"name":"json_struct_test_load_save","path":"scripts/json_struct_test_load_save/json_struct_test_load_save.yy",},"order":7,},
     {"id":{"name":"JsonStructDataType","path":"scripts/JsonStructDataType/JsonStructDataType.yy",},"order":2,},
     {"id":{"name":"json_struct_test_encrypt","path":"scripts/json_struct_test_encrypt/json_struct_test_encrypt.yy",},"order":6,},
-    {"id":{"name":"jsons_encode_formatted","path":"scripts/jsons_encode_formatted/jsons_encode_formatted.yy",},"order":4,},
     {"id":{"name":"JsonStruct","path":"extensions/JsonStruct/JsonStruct.yy",},"order":3,},
     {"id":{"name":"json_struct_test_load_save_encrypted","path":"scripts/json_struct_test_load_save_encrypted/json_struct_test_load_save_encrypted.yy",},"order":8,},
     {"id":{"name":"json_struct_test_real_encoders","path":"scripts/json_struct_test_real_encoders/json_struct_test_real_encoders.yy",},"order":2,},
