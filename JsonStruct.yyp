@@ -13,6 +13,7 @@
     {"id":{"name":"JsonStructTypeException","path":"scripts/JsonStructTypeException/JsonStructTypeException.yy",},"order":0,},
     {"id":{"name":"json_struct_test_all","path":"scripts/json_struct_test_all/json_struct_test_all.yy",},"order":0,},
     {"id":{"name":"JsonStructParseException","path":"scripts/JsonStructParseException/JsonStructParseException.yy",},"order":1,},
+    {"id":{"name":"json_struct_test_load_save_formatted","path":"scripts/json_struct_test_load_save_formatted/json_struct_test_load_save_formatted.yy",},"order":11,},
     {"id":{"name":"json_struct_test_decode_helpers","path":"scripts/json_struct_test_decode_helpers/json_struct_test_decode_helpers.yy",},"order":3,},
     {"id":{"name":"json_struct_test_clone","path":"scripts/json_struct_test_clone/json_struct_test_clone.yy",},"order":5,},
     {"id":{"name":"GMAssert","path":"extensions/GMAssert/GMAssert.yy",},"order":0,},

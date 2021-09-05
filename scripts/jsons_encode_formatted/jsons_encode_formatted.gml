@@ -9,13 +9,7 @@ function jsons_encode_formatted() {
 }
 
 function __jsons_encode_formatted__(val, indent, current_depth, max_depth, colon, comma) {
-	var buffer, result, siz;
-	var currentIndent = "";
-	var fullIndent = "";
-	if (current_depth < max_depth) {
-		currentIndent = "\n" + string_repeat(indent, current_depth);
-		fullIndent = currentIndent + indent;
-	}
+	var buffer, result, siz, currentIndent, fullIndent;
 	switch (typeof(val)) {
 		case "number":
 			return JSONS_REAL_ENCODER(val);
@@ -60,6 +54,8 @@ function __jsons_encode_formatted__(val, indent, current_depth, max_depth, colon
 			buffer_write(buffer, buffer_string, @'"');
 		break;
 		case "array":
+			currentIndent = (current_depth < max_depth) ? ("\n" + string_repeat(indent, current_depth)) : "";
+			fullIndent = (current_depth < max_depth) ? (currentIndent + indent) : "";
 			buffer = buffer_create(64, buffer_grow, 1);
 			siz = array_length(val);
 			buffer_write(buffer, buffer_text, "[");
@@ -72,6 +68,8 @@ function __jsons_encode_formatted__(val, indent, current_depth, max_depth, colon
 			buffer_write(buffer, buffer_string, "]");
 		break;
 		case "struct":
+			currentIndent = (current_depth < max_depth) ? ("\n" + string_repeat(indent, current_depth)) : "";
+			fullIndent = (current_depth < max_depth) ? (currentIndent + indent) : "";
 			buffer = buffer_create(64, buffer_grow, 1);
 			var isConflict = instanceof(val) == "JsonStruct";
 			var keys = isConflict ? val.keys() : variable_struct_get_names(val);
@@ -104,4 +102,17 @@ function __jsons_encode_formatted__(val, indent, current_depth, max_depth, colon
 	var result = buffer_read(buffer, buffer_string);
 	buffer_delete(buffer);
 	return result;
+}
+
+///@func jsons_encode_formatted(filename, val, <indent>, <max_depth>, <colon>, <comma>)
+function jsons_save_formatted() {
+	var val = argument[1];
+	var indent = (argument_count > 2) ? argument[2] : JSONS_FORMATTED_INDENT;
+	var max_depth = (argument_count > 3) ? argument[3] : JSONS_FORMATTED_MAX_DEPTH;
+	var colon = (argument_count > 4) ? argument[4] : JSONS_FORMATTED_COLON;
+	var comma = (argument_count > 5) ? argument[5] : JSONS_FORMATTED_COMMA;
+	var output = __jsons_encode_formatted__(val, indent, 0, max_depth, colon, comma);
+	var f = file_text_open_write(argument[0]);
+	file_text_write_string(f, output);
+	file_text_close(f);
 }
