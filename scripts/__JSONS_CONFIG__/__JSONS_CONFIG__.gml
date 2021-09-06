@@ -12,4 +12,4 @@ Configure JSON Structs using these macros.
 #macro JSONS_FORMATTED_COMMA ", "
 #macro JSONS_FORMATTED_COLON ": "
 #macro JSONS_FORMATTED_INDENT "\t"
-#macro JSONS_FORMATTED_MAX_DEPTH 3
+#macro JSONS_FORMATTED_MAX_DEPTH infinity
