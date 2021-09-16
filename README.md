@@ -1,4 +1,4 @@
-# JSON Struct v1.0.0
+# JSON Struct v1.1.0
 
 ## Overview
 
