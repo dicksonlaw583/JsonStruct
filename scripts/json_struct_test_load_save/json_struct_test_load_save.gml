@@ -7,7 +7,8 @@ function json_struct_test_load_save() {
 	// jsons_save(fname, thing)
 	jsons_save(fname, fixture);
 	var f = file_text_open_read(fname);
-	assert_equal(file_text_read_string(f), jsons_encode(fixture));
+	var line = file_text_read_string(f);
+	assert_equal(line, jsons_encode(fixture));
 	file_text_close(f);
 	
 	// jsons_load(fname)
