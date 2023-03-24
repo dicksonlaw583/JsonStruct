@@ -3,12 +3,12 @@
 ///@desc Utility class for building a struct with ordered keys.
 function JsonStruct(data_or_key=undefined) constructor {
 	if (is_struct(data_or_key)) {
-		var keys = variable_struct_get_names(data_or_key);
-		var nKeys = array_length(keys);
+		var ks = variable_struct_get_names(data_or_key);
+		var nKeys = array_length(ks);
 		_data = array_create(nKeys*2);
 		var ii = 0;
 		for (var i = 0; i < nKeys; ++i) {
-			var k = keys[i];
+			var k = ks[i];
 			_data[ii] = k;
 			_data[ii+1] = variable_struct_get(data_or_key, k);
 			ii += 2;
@@ -40,6 +40,7 @@ function JsonStruct(data_or_key=undefined) constructor {
 	///@param {string} key The key to set.
 	///@param {any} value The value to set under the key.
 	///@return {Struct.JsonStruct}
+	///@context {JsonStruct}
 	///@desc Set the value for the given key.
 	///
 	///Returns self to support chaining. Example: js.set("foo", 3).set("bar", 4);
@@ -55,7 +56,7 @@ function JsonStruct(data_or_key=undefined) constructor {
 		_data[@i+1] = value;
 		_data[@i] = key;
 		return self;
-	}
+	};
 	
 	///@func keys()
 	///@return {Array<string>}
