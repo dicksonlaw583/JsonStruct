@@ -40,11 +40,11 @@ function JsonStruct(data_or_key=undefined) constructor {
 	///@param {string} key The key to set.
 	///@param {any} value The value to set under the key.
 	///@return {Struct.JsonStruct}
-	///@context {JsonStruct}
 	///@desc Set the value for the given key.
 	///
 	///Returns self to support chaining. Example: js.set("foo", 3).set("bar", 4);
 	static set = function(key, value) {
+		///Feather disable GM1045
 		var imax = array_length(_data);
 		var i;
 		for (i = 0; i < imax; i += 2) {
@@ -56,6 +56,7 @@ function JsonStruct(data_or_key=undefined) constructor {
 		_data[@i+1] = value;
 		_data[@i] = key;
 		return self;
+		///Feather enable GM1045
 	};
 	
 	///@func keys()
