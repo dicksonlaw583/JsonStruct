@@ -1,7 +1,7 @@
 ///@func JsonStruct(data_or_key, string)
-///@param {string, struct} data_or_key 
+///@param {string, struct, undefined} data_or_key The entire struct as data, or the key of the first value
 ///@desc Utility class for building a struct with ordered keys.
-function JsonStruct(data_or_key) constructor {
+function JsonStruct(data_or_key=undefined) constructor {
 	if (is_struct(data_or_key)) {
 		var keys = variable_struct_get_names(data_or_key);
 		var nKeys = array_length(keys);
@@ -13,6 +13,8 @@ function JsonStruct(data_or_key) constructor {
 			_data[ii+1] = variable_struct_get(data_or_key, k);
 			ii += 2;
 		}
+	} else if (is_undefined(data_or_key)) {
+		_data = array_create(0);
 	} else {
 		if (argument_count % 2 == 1) show_error("Expected an even number of arguments, got " + string(argument_count) + ".", true);
 		_data = array_create(argument_count);
