@@ -13,6 +13,7 @@
     {"id":{"name":"json_struct_test_encode","path":"scripts/json_struct_test_encode/json_struct_test_encode.yy",},"order":1,},
     {"id":{"name":"__JSONS_CONFIG__","path":"scripts/__JSONS_CONFIG__/__JSONS_CONFIG__.yy",},"order":0,},
     {"id":{"name":"JsonStructTypeException","path":"scripts/JsonStructTypeException/JsonStructTypeException.yy",},"order":0,},
+    {"id":{"name":"JsonStruct_Internal","path":"scripts/JsonStruct_Internal/JsonStruct_Internal.yy",},"order":4,},
     {"id":{"name":"json_struct_test_all","path":"scripts/json_struct_test_all/json_struct_test_all.yy",},"order":0,},
     {"id":{"name":"JsonStructParseException","path":"scripts/JsonStructParseException/JsonStructParseException.yy",},"order":1,},
     {"id":{"name":"json_struct_test_load_save_formatted","path":"scripts/json_struct_test_load_save_formatted/json_struct_test_load_save_formatted.yy",},"order":11,},
