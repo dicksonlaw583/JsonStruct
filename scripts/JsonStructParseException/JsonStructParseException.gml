@@ -1,4 +1,4 @@
-///@func JsonStructParseException(pos, description)
+///@class JsonStructParseException(pos, description)
 ///@param {real} pos String position at which the failure occurred.
 ///@param {string} description A description of the type of failure.
 ///@desc Exception for when JSON Struct fails to parse a string.

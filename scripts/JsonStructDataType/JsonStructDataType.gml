@@ -1,4 +1,4 @@
-///@func JsonStruct(data_or_key, string)
+///@class JsonStruct(data_or_key, string)
 ///@param {string, struct, undefined} data_or_key The entire struct as data, or the key of the first value
 ///@desc Utility class for building a struct with ordered keys.
 function JsonStruct(data_or_key=undefined) constructor {
