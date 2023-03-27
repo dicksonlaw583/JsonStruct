@@ -1,5 +1,5 @@
 ///@func JsonStructTypeException(value)
-///@param value 
+///@param {Any} value The encountered value.
 ///@desc Exception for when JSON Struct tries to encode an unsupported value.
 function JsonStructTypeException(value) constructor {
 	#region Constructor properties

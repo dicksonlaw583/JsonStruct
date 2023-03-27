@@ -38,7 +38,8 @@ function jsons_clone(thing) {
 }
 
 ///@func jsons_decode(jsonstr)
-///@param jsonstr The JSON string to decode.
+///@param {String} jsonstr The JSON string to decode.
+///@return {Any}
 ///@desc Decode the given JSON text.
 function jsons_decode(jsonstr) {
 	// Seek to first active non-space character
@@ -51,7 +52,8 @@ function jsons_decode(jsonstr) {
 }
 
 ///@func jsons_decode_safe(jsonstr)
-///@param jsonstr The JSON string to decode.
+///@param {String} jsonstr The JSON string to decode.
+///@return {Any}
 ///@desc Decode the given JSON text, but use JsonStruct to represent JSON objects.
 function jsons_decode_safe(jsonstr) {
 	// Seek to first active non-space character
