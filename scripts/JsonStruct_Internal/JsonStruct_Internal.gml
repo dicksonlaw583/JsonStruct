@@ -2,6 +2,7 @@
 ///@param {Struct} seekrec
 ///@param {Bool} safe Whether safe mode is enabled.
 ///@return {Array}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming array value.
 function __jsons_decode_array__(seekrec, safe) {
 	// Setup
@@ -32,6 +33,7 @@ function __jsons_decode_array__(seekrec, safe) {
 ///@func __jsons_decode_bool__(seekrec)
 ///@param {Struct} seekrec
 ///@return {Bool}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming Boolean value.
 function __jsons_decode_bool__(seekrec) {
 	if (string_copy(seekrec.str, seekrec.pos, 4) == "true") {
@@ -48,6 +50,7 @@ function __jsons_decode_bool__(seekrec) {
 ///@func __jsons_decode_real__(seekrec)
 ///@param {Struct} seekrec
 ///@return {Real}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming numeric value.
 function __jsons_decode_real__(seekrec) {
 	var i = seekrec.pos;
@@ -192,6 +195,7 @@ function __jsons_decode_real__(seekrec) {
 ///@func __jsons_decode_seek__(seekrec)
 ///@param {Struct} seekrec
 ///@return {String}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Seek to the next "hot" character and return it.
 function __jsons_decode_seek__(seekrec) {
 	var strlen = string_length(seekrec.str);
@@ -210,6 +214,7 @@ function __jsons_decode_seek__(seekrec) {
 ///@func __jsons_decode_string__(seekrec)
 ///@param {Struct} seekrec
 ///@return {String}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming string value.
 function __jsons_decode_string__(seekrec) {
 	var buffer = buffer_create(64, buffer_grow, 1);
@@ -290,6 +295,7 @@ function __jsons_decode_string__(seekrec) {
 ///@param {Struct} seekrec
 ///@param {Bool} safe Whether safe mode is enabled.
 ///@return {Struct}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming struct value.
 function __jsons_decode_struct__(seekrec, safe) {
 	// Setup
@@ -343,6 +349,7 @@ function __jsons_decode_struct__(seekrec, safe) {
 ///@param {Struct} seekrec
 ///@param {Bool} safe Whether safe mode is enabled.
 ///@return {Any}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming value.
 function __jsons_decode_subcontent__(seekrec, safe) {
 	switch (ord(string_char_at(seekrec.str, seekrec.pos))) {
@@ -372,6 +379,7 @@ function __jsons_decode_subcontent__(seekrec, safe) {
 ///@func __jsons_decode_undefined__(seekrec)
 ///@param {Struct} seekrec
 ///@return {undefined}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decode the upcoming null value.
 function __jsons_decode_undefined__(seekrec) {
 	if (string_copy(seekrec.str, seekrec.pos, 4) == "null") {
@@ -385,6 +393,7 @@ function __jsons_decode_undefined__(seekrec) {
 ///@param {String} str Encrypted buffer in Base64 string form.
 ///@param {String} key The key to decrypt with.
 ///@return {String}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Decrypt the Base64 string with the given key and return the plaintext string.
 function __jsons_decrypt__(str, key) {
 	var buffer = buffer_base64_decode(str);
@@ -405,6 +414,7 @@ function __jsons_decrypt__(str, key) {
 ///@param {String} colon The colon character sequence to use.
 ///@param {String} comma The comma character sequence to use.
 ///@return {String}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Encode the value in formatted JSON.
 function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, comma) {
 	var buffer, result, siz, currentIndent, fullIndent;
@@ -506,6 +516,7 @@ function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, 
 ///@param {String} str Plaintext string.
 ///@param {String} key The key to encrypt with.
 ///@return {String}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Encrypt the string with the given key and return the ciphertext Base64 string.
 function __jsons_encrypt__(str, key) {
 	var length = string_byte_length(str);
@@ -520,6 +531,7 @@ function __jsons_encrypt__(str, key) {
 ///@func __jsons_hex_to_decimal__(hexstr)
 ///@param {String} hexstr The hex number in string form.
 ///@return {Real}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Return the numeric value of the given hex string value.
 function __jsons_hex_to_decimal__(hexstr) {
 	var hex_string, hex_digits;
@@ -546,6 +558,7 @@ function __jsons_hex_to_decimal__(hexstr) {
 
 ///@func __jsons_is_whitespace__(char)
 ///@param {String} char The given character.
+///@ignore
 ///@desc Return whether the given character is a whitespace character
 function __jsons_is_whitespace__(char) {
 	switch (ord(char)) {
@@ -586,6 +599,7 @@ function __jsons_is_whitespace__(char) {
 ///@param {Real} offset The byte offset to start encrypting at.
 ///@param {Real} length The number of bytes to encrypt.
 ///@return {Id.Buffer}
+///@ignore
 ///@desc (INTERNAL: JsonStruct) Perform RC4 in-place on the given buffer and return it.
 function __jsons_rc4__(buffer, key, offset, length) {
 	var i, j, s, temp, keyLength, pos;
