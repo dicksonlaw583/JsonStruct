@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "JsonStructDataType",
+  "name": "GMAssert_Exceptions",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "JsonStruct",
-    "path": "folders/Libraries/JsonStruct.yy",
+    "name": "GMAssert",
+    "path": "folders/Libraries/GMAssert.yy",
   },
 }

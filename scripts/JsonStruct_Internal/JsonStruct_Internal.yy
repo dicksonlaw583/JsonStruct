@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "JsonStructDataType",
+  "name": "JsonStruct_Internal",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
