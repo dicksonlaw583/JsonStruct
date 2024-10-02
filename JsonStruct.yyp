@@ -57,13 +57,13 @@
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Libraries_config","folderPath":"folders/Libraries_config.yy","order":5,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GMAssert","folderPath":"folders/Libraries_config/GMAssert.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"JsonStruct","folderPath":"folders/Libraries_config/JsonStruct.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Libraries_test","folderPath":"folders/Libraries_test.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"JsonStruct_test","folderPath":"folders/Libraries_test/JsonStruct_test.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Libraries","folderPath":"folders/Libraries.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"JsonStruct","folderPath":"folders/Libraries/JsonStruct.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GMAssert","folderPath":"folders/Libraries/GMAssert.yy","order":2,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GMAssert","folderPath":"folders/Libraries_config/GMAssert.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"JsonStruct","folderPath":"folders/Libraries/JsonStruct.yy","order":1,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
@@ -73,6 +73,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.0.0.19",
+    "IDEVersion": "2022.0.2.51",
   },
 }

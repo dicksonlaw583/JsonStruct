@@ -182,16 +182,17 @@ function jsons_encode(thing) {
 	///Feather enable GM1045
 }
 
-///@func jsons_encode_formatted(thing, [indent], [maxDepth], [colon], [comma])
+///@func jsons_encode_formatted(thing, [indent], [maxDepth], [colon], [comma], [order])
 ///@param {Any} thing The value to encode.
 ///@param {String} [indent] (Optional) The indentation to use.
 ///@param {Real} [maxDepth] (Optional) The maximum nesting depth to reach before reverting to no indentation.
 ///@param {String} [colon] (Optional) The colon character sequence to use.
 ///@param {String} [comma] (Optional) The comma character sequence to use.
+///@param {Bool,Function} [order] The sorting order to use for struct keys.
 ///@return {String}
 ///@desc Encode the value in pretty-printed JSON.
-function jsons_encode_formatted(thing, indent=JSONS_FORMATTED_INDENT, maxDepth=JSONS_FORMATTED_MAX_DEPTH, colon=JSONS_FORMATTED_COLON, comma=JSONS_FORMATTED_COMMA) {
-	return __jsons_encode_formatted__(thing, indent, 0, maxDepth, colon, comma);
+function jsons_encode_formatted(thing, indent=JSONS_FORMATTED_INDENT, maxDepth=JSONS_FORMATTED_MAX_DEPTH, colon=JSONS_FORMATTED_COLON, comma=JSONS_FORMATTED_COMMA, order=JSONS_FORMATTED_ORDER) {
+	return __jsons_encode_formatted__(thing, indent, 0, maxDepth, colon, comma, order);
 }
 
 ///@func jsons_encrypt(thing, [enckey], [encfunc])
@@ -298,16 +299,17 @@ function jsons_save_encrypted(fname, thing, enckey="theJsonEncryptedKey", encfun
 	file_text_close(f);
 }
 
-///@func jsons_save_formatted(fname, val, [indent], [maxDepth], [colon], [comma])
+///@func jsons_save_formatted(fname, val, [indent], [maxDepth], [colon], [comma], [order])
 ///@param {String} fname The name of the file.
 ///@param {Any} val The value to encode.
 ///@param {String} [indent] (Optional) The indentation to use.
 ///@param {Real} [maxDepth] (Optional) The maximum nesting depth to reach before reverting to no indentation.
 ///@param {String} [colon] (Optional) The colon character sequence to use.
 ///@param {String} [comma] (Optional) The comma character sequence to use.
+///@param {Bool,Function} [order] The sorting order to use for struct keys.
 ///@desc Save the given thing into the given file as pretty-printed JSON.
-function jsons_save_formatted(fname, val, indent=JSONS_FORMATTED_INDENT, maxDepth=JSONS_FORMATTED_MAX_DEPTH, colon=JSONS_FORMATTED_COLON, comma=JSONS_FORMATTED_COMMA) {
-	var output = __jsons_encode_formatted__(val, indent, 0, maxDepth, colon, comma);
+function jsons_save_formatted(fname, val, indent=JSONS_FORMATTED_INDENT, maxDepth=JSONS_FORMATTED_MAX_DEPTH, colon=JSONS_FORMATTED_COLON, comma=JSONS_FORMATTED_COMMA, order=JSONS_FORMATTED_ORDER) {
+	var output = __jsons_encode_formatted__(val, indent, 0, maxDepth, colon, comma, order);
 	var f = file_text_open_write(fname);
 	file_text_write_string(f, output);
 	file_text_close(f);

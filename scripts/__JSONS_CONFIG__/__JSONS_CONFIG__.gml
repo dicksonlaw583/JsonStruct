@@ -13,3 +13,7 @@ Configure JSON Structs using these macros.
 #macro JSONS_FORMATTED_COLON ": "
 #macro JSONS_FORMATTED_INDENT "\t"
 #macro JSONS_FORMATTED_MAX_DEPTH infinity
+
+//Specify the default sorting order for jsons_encode_formatted and jsons_save_formatted
+//You can specify true for ascending, false for descending, or a sorting function for array_sort()
+#macro JSONS_FORMATTED_ORDER true

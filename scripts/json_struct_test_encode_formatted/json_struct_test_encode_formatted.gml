@@ -33,6 +33,11 @@ function json_struct_test_encode_formatted() {
 	assert_equal(jsons_encode_formatted(new JsonStruct("abc", "def"), "    "), "{\n    \"abc\": \"def\"\n}", "jsons_encode_formatted encode structs (conflict mode) 3");
 	assert_equal(jsons_encode_formatted(new JsonStruct("abc", "def", "ghi", 583), "  "), "{\n  \"abc\": \"def\", \n  \"ghi\": 583\n}", "jsons_encode_formatted encode structs (conflict mode) 3");
 	
+	// Encode structs sorted
+	assert_equal(jsons_encode_formatted({d: "D", c: "C", b: "B", a: "A"}, "  ", 1, ":", ",", true), "{\n  \"a\":\"A\",\n  \"b\":\"B\",\n  \"c\":\"C\",\n  \"d\":\"D\"\n}", "jsons_encode_formatted encode structs ordered 1");
+	assert_equal(jsons_encode_formatted({a: "A", b: "B", c: "C", d: "D"}, "  ", 1, ":", ",", false), "{\n  \"d\":\"D\",\n  \"c\":\"C\",\n  \"b\":\"B\",\n  \"a\":\"A\"\n}", "jsons_encode_formatted encode structs ordered 2");
+	assert_equal(jsons_encode_formatted({a: "1", b: "2", C: "3", D: "4"}, "  ", 1, ":", ",", function(v1, v2) { return ord(v1)-ord(v2); }), "{\n  \"C\":\"3\",\n  \"D\":\"4\",\n  \"a\":\"1\",\n  \"b\":\"2\"\n}", "jsons_encode_formatted encode structs ordered 3");
+	
 	// Encode mixed
 	assert_equal(jsons_encode_formatted({foo: [3.25, -2.75, "Hello world!", bool(true), undefined]}, "  "), "{\n  \"foo\": [\n    3.25, \n    -2.75, \n    \"Hello world!\", \n    true, \n    null\n  ]\n}", "jsons_encode_formatted mixed 1");
 	assert_equal(jsons_encode_formatted([3, -2, {foo: "bar", goo: "baz"}, bool(false)], "  "), "[\n  3, \n  -2, \n  {\n    \"foo\": \"bar\", \n    \"goo\": \"baz\"\n  }, \n  false\n]", "jsons_encode_formatted mixed 2");

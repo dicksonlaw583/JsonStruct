@@ -406,17 +406,18 @@ function __jsons_decrypt__(str, key) {
 	///Feather enable GM1045
 }
 
-///@func __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, comma)
+///@func __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, comma, order)
 ///@param {Any} val The value to encode.
 ///@param {String} indent The indentation to use.
 ///@param {Real} currentDepth The current nesting depth.
 ///@param {Real} maxDepth The maximum nesting depth to reach before reverting to no indentation.
 ///@param {String} colon The colon character sequence to use.
 ///@param {String} comma The comma character sequence to use.
+///@param {Bool,Function} order The sorting order to use for struct keys.
 ///@return {String}
 ///@ignore
 ///@desc (INTERNAL: JsonStruct) Encode the value in formatted JSON.
-function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, comma) {
+function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, comma, order) {
 	var buffer, result, siz, currentIndent, fullIndent;
 	switch (typeof(val)) {
 		case "number":
@@ -470,7 +471,7 @@ function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, 
 			for (var i = 0; i < siz; ++i) {
 				if (i > 0) buffer_write(buffer, buffer_text, comma);
 				buffer_write(buffer, buffer_text, fullIndent);
-				buffer_write(buffer, buffer_text, __jsons_encode_formatted__(val[i], indent, currentDepth+1, maxDepth, colon, comma));
+				buffer_write(buffer, buffer_text, __jsons_encode_formatted__(val[i], indent, currentDepth+1, maxDepth, colon, comma, order));
 			}
 			if (siz > 0) buffer_write(buffer, buffer_text, currentIndent);
 			buffer_write(buffer, buffer_string, "]");
@@ -482,7 +483,7 @@ function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, 
 			var isConflict = instanceof(val) == "JsonStruct";
 			var keys = isConflict ? val.keys() : variable_struct_get_names(val);
 			siz = array_length(keys);
-			array_sort(keys, true);
+			array_sort(keys, order);
 			buffer_write(buffer, buffer_text, "{");
 			for (var i = 0; i < siz; ++i) {
 				var k = keys[i];
@@ -490,7 +491,7 @@ function __jsons_encode_formatted__(val, indent, currentDepth, maxDepth, colon, 
 				buffer_write(buffer, buffer_text, fullIndent);
 				buffer_write(buffer, buffer_text, jsons_encode(k));
 				buffer_write(buffer, buffer_text, colon);
-				buffer_write(buffer, buffer_text, __jsons_encode_formatted__(isConflict ? val.get(k) : variable_struct_get(val, k), indent, currentDepth+1, maxDepth, colon, comma));
+				buffer_write(buffer, buffer_text, __jsons_encode_formatted__(isConflict ? val.get(k) : variable_struct_get(val, k), indent, currentDepth+1, maxDepth, colon, comma, order));
 			}
 			if (siz > 0) buffer_write(buffer, buffer_text, currentIndent);
 			buffer_write(buffer, buffer_string, "}");
